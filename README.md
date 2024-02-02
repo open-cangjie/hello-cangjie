@@ -9,3 +9,5 @@
 ## 章节目录
 
 - [基础-开始了解仓颉](./docs/basic.md) 
+
+- [基础-数据类型](./docs/data-type.md)
