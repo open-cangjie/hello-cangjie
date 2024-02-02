@@ -9,6 +9,11 @@
 
 但是，目前还没发现编译器，IDE，也不知道咋Run、咋Debug起来，目前只见皮毛代码，所以目前能做的，也是从代码的角度做一些分析和学习。欢迎大家Join Me！
 
+
+
 ## 仓颉基本语言特性
 
 imp
+
+
+发现的代码的仓库在这里：[cangjie liannu](https://gitee.com/HW-PLLab/lianu) 。
