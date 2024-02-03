@@ -1,15 +1,32 @@
-# 基础数据类型
+# 数据类型
 
-仓颉编程的数据类型有已下几种：
+
+仓颉编程（CangjieLang）是强类型语言,变量和函数参数都需要显式声明类型，例如：
+
+```cj
+public let growable: Bool = false
+public func get(value: Array<Byte>): Int64。
+```
+
+### 基础数据类型
+
+
+仓颉（CangjieLang）的基础数据类型有已以下几种：
 
 - 布尔类型：`Bool`
 - 整数类型：`Int64`
 - 字节类型：`Byte`
-- 数组类型：`Array<Byte>`
-- 泛型：`Type<T>`，其中`T`可以是`Unit`或其他类型，Type可以是任意自定义类型，如`Collection<T>`、`ArrayList<T>`，`Collection<T>`、
-- 哈希类型：`Hashable`
-- 可比较类型：`<ByteBuffer>`
-- 异常类型： 如`Exception`
+
+需要注意语言规约是所有的数据类型名都是大写。
+
+### 高级泛型类型：
+
+泛型，类似于其他编程语言，形式为：`Type<T>`，其中`T`可以是`Unit`或其他类型，Type可以是任意自定义类型，如`Collection<T>`、`ArrayList<T>`，`Collection<T>`、
+
+常见的高级泛型有：数组类型：Array<T>、Collection<T>、ArrayList<T>
+
+
+
 
 与Rust语言的对比如下：
 
