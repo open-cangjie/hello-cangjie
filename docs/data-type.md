@@ -13,22 +13,50 @@ public func get(value: Array<Byte>): Int64。
 
 仓颉（CangjieLang）的基础数据类型有已以下几种：
 
-- 布尔类型：`Bool`
-- 整数类型：`Int64`
-- 字节类型：`Byte`
+- Bool：布尔型
+- Int8：8位有符号整数
+- Int16：16位有符号整数
+- UInt16：16位无符号整数
+- Int32：32位有符号整数
+- UInt32：32位无符号整数
+- Int64：64位有符号整数
+- UInt64：64位无符号整数
+- Float16：16位浮点数
+- Float32：32位浮点数
+- Float64：64位浮点数
+- Rune：Unicode字符
 
 需要注意语言规约是所有的数据类型名都是大写。
 
-### 高级泛型类型：
+### 常见的泛型类型：
 
-泛型，类似于其他编程语言，形式为：`Type<T>`，其中`T`可以是`Unit`或其他类型，Type可以是任意自定义类型，如`Collection<T>`、`ArrayList<T>`，`Collection<T>`、
+泛型，类似于其他编程语言，形式为：`Type<T>`，其中`T`可以是`Unit`或其他类型，Type可以是任意自定义类型，如`Collection<T>`、`ArrayList<T>`。
+仓颉中常见的高级泛型有：
+Collection<T>: 泛型集合类型
+ArrayList<T>：泛型数组链表类型
+Array<T>: 泛型数组类型
+Result<T>: 泛型结果类型，表示可能包含错误的结果
 
-常见的高级泛型有：数组类型：Array<T>、Collection<T>、ArrayList<T>
+
+### 其他常见的高级类型
+
+高级类型，非常多，多以标准库或者可扩展库提供，你也可以编写自己的类库，这里列举一些常见的高级类型。
+- Duration：时间间隔的类型 
+- DateTime：日期和时间的类型
+- BlockingQueue: 阻塞队列，用于线程间的数据传输
+- ConcurrentHashMap: 线程安全的哈希表
+- AtomicBool: 原子布尔类型，用于实现线程安全的布尔操作
+- ArrayList: 动态数组类型
+- TypeInfo: 反射类型信息
+- Endian: 字节序
+- BigInt: 大整数
+- Decimal: 十进制数
 
 
 
+### 与Rust的类型比较：
 
-与Rust语言的对比如下：
+与Rust语言的对比如下：（为什么是rust？没有为什么，纯感觉，理论上可以自行比较其他任意编程语言）
 
 - 布尔类型：Rust中的布尔类型是`bool`
 - 整数类型：Rust中的整数类型可以根据需要选择，例如`u8`、`i32`等
