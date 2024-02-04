@@ -41,6 +41,15 @@ import numpy as np  # numpy模块的别名是np
 from os import listdir as ls  # listdir函数的别名是ls
 ```
 
+### 条件语句
+条件语句通常用于判断操作系统的平台类型，如是否是HongMeng、windows 或Linux ,概念上类似C语言的宏，语法表达：@When[判断语句]
+
+```Cangjie
+@When[os == "windows"]
+let NEW_LINE = "\r\n"
+@When[os != "windows"]
+let NEW_LINE = "\n"
+```
 
 ### 类型修饰符
 
@@ -56,8 +65,15 @@ Class类修饰符，public、private，用于定义Class 是公开或者私有�
 类中的属性可以是只读或读写的，方法可以是公共的或私有的。属性和方法可以具有修饰符，如 public 或 private。
 
 
-### 返回值
+### 函数与返回值
 
+函数使用func 标识符，类似Go语言，返回值为现代语言的后置类型，使用->符号指定函数返回类型。
+例如，函数byteIndex返回一个Int64类型的值，函数set返回一个Void类型（可省略），可以表达为：
+
+```Cangjie
+func byteIndex() ->Int64
+func set() 
+```
 
 ## 变量
 
@@ -105,10 +121,10 @@ Class类修饰符，public、private，用于定义Class 是公开或者私有�
 仓颉可以使用原子整型变量和原子操作，用于实现引用计数和线程安全的操作。
 
 
-
 ### 内存管理：
 
 类似C语言，在仓颉编程中，有内存管理的概念，可以申请和释放字节缓冲区的操作。
+
 
 
 
