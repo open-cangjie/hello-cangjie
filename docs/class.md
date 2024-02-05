@@ -9,6 +9,17 @@
 - 包含泛型的类在继承时候可以进行限定。
 
 
+## 属性
+
+`mut`关键字表明某个属性是可变的、可修改的，否则默认情况下都是不可变的。 
+
+如：
+```Cangjie
+mut prop reading: Bool
+
+public open mut prop currentReadOffset: Int64{} 
+```
+
 
 ## 类型限定
 
@@ -42,6 +53,21 @@ public class Release{
             if(let Some(h) <- handle){
                 unsafe{releaseArrayRawData<Byte>(h)}
             }
+        }
+    }
+}
+```
+
+### 类型扩展Extend
+
+这是个非常厉害的特性，这个特性可以让你扩展已经存在的类型的能力，让这个类型拥有更多的能力，比如让这个类多实现一些接口，或者给其增加一些成员函数等。
+
+```Cangjie
+extend Result<T> <: ToString where T <: ToString {
+    public func toString(): String {
+        match (this) {
+            case Ok(v) => return v.toString()
+            case Err(v) => return v.message
         }
     }
 }

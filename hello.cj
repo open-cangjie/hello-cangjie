@@ -1,7 +1,8 @@
 Package main
 
-foreign {
-    func SumNums(): Unit
-    func ShowMe(): Unit
-}
 
+func main():String{
+
+    return "Hello world"
+
+}

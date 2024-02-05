@@ -8,9 +8,9 @@
 
 ## 章节目录
 
-- [基础-开始了解](./docs/basic.md) 
+- [基础-开始了解Start](./docs/basic.md) 
 
-- [基础数据类型DataType](./docs/data-type.md)
+- [基础-数据类型DataType](./docs/data-type.md)
 
 - [类型Class](./docs/class.md)
 
@@ -24,7 +24,9 @@
 
 - [枚举Enum](./docs/enum.md)
 
+- [同步sync](./docs/sync.md)
 
-### Thanks 
+
+## Thanks 
 
 With AI and its Open source Application Support.
