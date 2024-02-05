@@ -57,12 +57,22 @@ let NEW_LINE = "\n"
 
 ### 变量
 
-使用let关键字声明不可变变量，使用var关键字声明可变变量。
+- 使用let关键字声明不可变变量，使用var关键字声明可变变量。
 比如：
 ```Cangjie
 let NewLine = "\r\n", 整个生命周期中，NewLine 都是"\r\n"，也不会是空值。
 ```
+- 使用var 声明全局变量，使用let声明局部变量。
 
+如：
+```Cangjie
+Class Buffer{
+ private var currentWriteOffset_ = 0
+ public ByteBuffer(public let growable!: Bool = false,
+                    public let moveOnWriteOverflow!: Bool = growable){}
+}
+```
+其中变量后`!`表示该变量为可选。
 ### 类型Class
 
 使用class关键字定义类，使用abstract关键字定义抽象类。类可以继承其他类，使用<:符号表示继承关系
@@ -82,11 +92,11 @@ Class类修饰符为public、private，用于定义Class 是公开或者私有�
 
 ### 函数与返回值
 
-函数使用func 标识符修饰，类似Go语言，返回值为现代语言的后置类型，使用->符号指定函数返回类型。
+函数使用func 标识符修饰，类似Go语言，返回值为现代语言的后置类型，使用`:`符号指定函数返回类型。
 例如，函数byteIndex返回一个Int64类型的值，函数set返回一个Void类型（可省略），可以表达为：
 
 ```Cangjie
-func byteIndex() ->Int64
+func byteIndex()：Int64
 func set() 
 ```
 函数的返回值类型可以是Result<T>，其中T是一个泛型类型。Result<T>表示可能返回成功值T或错误值Error的结果。
@@ -112,6 +122,10 @@ func set()
 ### 运算符重载：
 
 仓颉支持运算符重载，如 [] 运算符，可以通过索引访问类的实例或设置值。
+
+```Cangjie
+    public operator func [](index: Int64, value!: Byte): Unit
+```
 
 
 ### 类型检查和转换：
