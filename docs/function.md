@@ -1,7 +1,9 @@
 # 函数
 
 ## 基础特性
-- 函数的定义以func关键字开头，后面是函数名和参数列表。函数可以有返回值，也可以没有返回值（使用Void或空括号表示）。
+- 函数的定义以func关键字开头，后面是函数名和参数列表。函数可以有返回值，也可以没有返回值（使用Void或空括号表示）.
+
+- 类可以有初始化函`init(Pram1,Pram2,...)`,反初始化函数为~init().
 
 - 函数返回值，使用`:`符号在函数签名的后边指定返回类型，函数体内使用`return`返回值,也可以通过throw语句抛出异常。
 
@@ -68,3 +70,30 @@ private func set(index: Int64, size: Int64, fn: (Int64)->Byte){
 }
 
 ```
+
+## 构造即初始化（init when construction)
+
+在构造函数中的，可以声明类全局级的变量，同时初始化，如下：
+
+```Cangjie
+class ByteBufferPool<T>{
+    private let idles: BlockingQueue<T>
+    public ByteBufferPool(
+        private let initSize!: Int64 = 1,
+        private let maxSize!: Int64 = 1,
+        private let minIdleSize!: Int64 = 1,
+        private let offHeap!: Bool = true,
+        private let moveOnWriteOverflow!: Bool = false,
+        private let strategy!: WorkerStrategy){
+        if(!(initSize <= maxSize && minIdleSize <= maxSize)){
+            throw ByteBufferException("initSize must be less than or equals to maxSize, minIdleSize must be less than or equals to maxSize, however initSize is ${initSize}, minIdleSize is ${minIdleSize}, maxSize is ${maxSize}")
+        }
+        newBuffersEventQueue = BlockingQueue<Int64>(maxSize)
+        this.idles = BlockingQueue<T>(maxSize)
+        strategyFn = createStrategyFn()
+        newBuffers(initSize)
+    }
+}
+```
+
+以上ByteBufferPool构造函数中的所有参数，均为ByteBufferPool类内的全局变量。
