@@ -67,7 +67,8 @@ let NewLine = "\r\n", 整个生命周期中，NewLine 都是"\r\n"，也不会�
 如：
 ```Cangjie
 Class Buffer{
- private var currentWriteOffset_ = 0
+ private let workings = ConcurrentHashMap<Int64, T>() //指向不可变
+ private var currentWriteOffset_ = 0 //指向可变。
  public ByteBuffer(public let growable!: Bool = false,
                     public let moveOnWriteOverflow!: Bool = growable){}
 }
