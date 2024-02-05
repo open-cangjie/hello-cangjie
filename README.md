@@ -12,11 +12,17 @@
 
 - [基础数据类型DataType](./docs/data-type.md)
 
+- [类型Class](./docs/class.md)
+
 - [函数Function](./docs/data-type.md)
 
 - [泛型Generic](./docs/generic.md)
 
+- [线程Thread](./docs/thread.md)
+
 - [匹配Match](./docs/match.md)
+
+- [枚举Enum](./docs/enum.md)
 
 
 ### Thanks 
