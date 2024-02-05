@@ -20,6 +20,33 @@ mut prop reading: Bool
 public open mut prop currentReadOffset: Int64{} 
 ```
 
+以下表示一个公开可读的属性，二个公开可以读写的属性，即可变的属性。
+
+```Cangjie
+    public prop pointers: Iterator<BytesPointerMeta>{
+        get(){
+            buffer.pointers
+        }
+    }
+    public mut prop currentReadOffset: Int64{
+        get(){
+            buffer.currentReadOffset
+        }
+        set(value){
+            buffer.currentReadOffset = value
+        }
+    }
+    public mut prop currentWriteOffset: Int64{
+        get(){
+            buffer.currentWriteOffset
+        }
+        set(value){
+            buffer.currentWriteOffset = value
+        }
+    }
+
+```
+
 
 ## 类型限定
 
