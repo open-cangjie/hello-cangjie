@@ -25,6 +25,7 @@ public func get(value: Array<Byte>): Int64。
 - Float32：32位浮点数
 - Float64：64位浮点数
 - Rune：Unicode字符
+- Enum:[枚举类型](./Enum.md)
 
 需要注意语言规约是所有的数据类型名都是大写。
 

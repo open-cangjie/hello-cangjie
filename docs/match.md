@@ -1,7 +1,33 @@
-# 语言特性 之 match
+# 模式匹配match
 
 match特性是现代编程语言中常见的特性，它们在不同的编程语言中有类似的概念和语法，但在细节上可能有一些差异。它们都可以提高代码的灵活性和可重用性，但用法和语法可能会因编程语言而异。
 
+
+```Cangjie
+private func populate(timeout: Duration, start: DateTime): Result<T>{
+            while(Duration.since(start) < timeout && size < maxSize && !newBuffersEventQueue.tryEnqueue(1) && !isClosed()){
+                if(let Some(b) <- idles.dequeue(WAIT_POPULATING)){
+                    workings[b.serial] = b
+                    return Ok(b)
+                }
+            }
+            func blockFn(){
+                let b = idles.dequeue()
+                workings[b.serial] = b
+                Ok(b)
+            }
+            func errFn(): Result<T> {
+                Err(ByteBufferException("ByteBufferPool is full"))
+            }
+            match(strategy){
+                case New => Ok(newBuffer())
+                case Block => blockFn()
+                case Abort => errFn()
+                case AbortAfter(_) => errFn()
+                case _ => blockFn()
+            }
+        }
+```
 
 ## match特性：
 
