@@ -10,11 +10,13 @@
 
 - [基础-开始了解](./docs/basic.md) 
 
-- [基础数据类型](./docs/data-type.md)
+- [基础数据类型DataType](./docs/data-type.md)
 
-- [泛型](./docs/generic.md)
+- [函数Function](./docs/data-type.md)
 
-- [Match](./docs/match.md)
+- [泛型Generic](./docs/generic.md)
+
+- [匹配Match](./docs/match.md)
 
 
 ### Thanks 
