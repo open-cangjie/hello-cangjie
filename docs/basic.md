@@ -30,10 +30,11 @@
 
 ```Cangjie
 from std import collection.concurrent.BlockingQueue
-from std import time.Duration
+from std import time.{Duration, DateTime}
 import exceptions.JobQueueException
 import options.WorkerStrategy
 import result.Result
+
 ```
 
 
@@ -175,13 +176,26 @@ func set()
 类型判断和转换：使用is_ok()和unwrap()方法进行类型判断和转换。
 
 
+### unsafe 操作
+
+直接进行内存创建和释放的操作，类似rust和go一样，通常不需要手动处理。
+使用unsafe 操作上时候，在`unsafe`关键字后的大括号内编写 `unsafe`代码，示例如下：
+
+```Canjie
+if(let Some(h) <- handle){
+    unsafe{releaseArrayRawData<Byte>(h)}
+}
+```
+
+### 可选类型
+
+"?"符号修饰的类型表示可选类型（Optional）。可选类型表示一个值可以是某个类型的实例，也可以是`None`。
 
 
-### 其他待解释的问题
+对于`public func next(): ?BytesPointerMeta`其中?表示返回类型BytesPointerMeta是可选类型，即函数可能返回一个BytesPointerMeta实例，也可能`None`。
+对于`public let handle!: ?CPointerHandle<Byte> = None `其中?表示属性handle的类型是可选类型CPointerHandle<Byte>?，即属性handle可能是一个CPointerHandle<Byte>实例，也可能为空。
 
 
-- 冒号（：）
-- 问号（？）
+目前所有代码的理解和学习都基于疑似泄露代码的仓库：[仓颉原生高性能网络库-诸葛连弩](https://gitee.com/HW-PLLab/lianu) 。
 
 
-疑似泄露代码的仓库在这里：[仓颉原生高性能网络库-诸葛连弩](https://gitee.com/HW-PLLab/lianu) 。
