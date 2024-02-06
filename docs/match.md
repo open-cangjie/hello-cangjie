@@ -3,6 +3,18 @@
 match特性是现代编程语言中常见的特性，它们在不同的编程语言中有类似的概念和语法，但在细节上可能有一些差异。它们都可以提高代码的灵活性和可重用性，但用法和语法可能会因编程语言而异。
 
 
+仓颉的match 支持通过箭头函数直接返回值，如下：
+
+```Cangjie
+    public func is_ok(): Bool {
+        match (this) {
+            case Ok(v) => true
+            case Err(v) => false
+        }
+    }
+
+```
+
 ```Cangjie
 private func populate(timeout: Duration, start: DateTime): Result<T>{
             while(Duration.since(start) < timeout && size < maxSize && !newBuffersEventQueue.tryEnqueue(1) && !isClosed()){

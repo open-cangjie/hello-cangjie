@@ -35,7 +35,6 @@ from std import collection.concurrent.BlockingQueue
 from std import time.{Duration, DateTime}
 import exceptions.JobQueueException
 import options.WorkerStrategy
-import result.Result
 
 ```
 
@@ -170,8 +169,6 @@ func set()
 字节缓冲操作：定义了字节缓冲的读取、写入、追加等操作。
 
 属性访问器：使用get和set关键字定义属性的访问器。
-
-结果类型：使用Result同时表示可能的成功或失败Error的结果。
 
 迭代器：使用Iterator接口定义迭代器，并实现next方法进行迭代。
 
