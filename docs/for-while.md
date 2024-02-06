@@ -1,4 +1,21 @@
-#for
+# for/while 循环
+
+基本的高级语言的特性，都少不了for 和while，仓颉也不例外，在仓颉中。
+
+- for可以用来遍历，如：`for(option in options){}`
+- for遍历的同时，可以直接解构，如：`for((_, b) in workings){}`
+- while可以用来遍历，如：`while(let Some(b) <- idles.tryDequeue()){}`
+
+
+```cj
+private static func doRelease(buffers: ArrayList<T>){
+    for(buffer in buffers){
+        buffer.release()
+    }
+}
+```
+
+示例如下：
 
 ```Cangjie
     public init(options: Array<IOOptions>){

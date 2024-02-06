@@ -11,9 +11,11 @@
 
 - [基础-数据类型dataType](./docs/data-type.md)
 
-- [类型class](./docs/class.md)
+- [类型class](./docs/class-struct.md)
 
 - [函数function](./docs/data-type.md)
+
+- [循环for-while](./docs/for-while.md)
 
 - [泛型generic](./docs/generic.md)
 
@@ -29,6 +31,9 @@
 
 - [模块module](./docs/module.md)
 
+- [对错处理ok-err](./docs/ok-err.md)
+
+- [异常exception](./docs/exception.md)
 
 ## Thanks 
 
