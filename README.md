@@ -5,7 +5,6 @@
 - 本仓库也是从可能是泄露代码的角度做一些分析学习和沉淀共享，欢迎爱好者们一起研究。
 - 文档中可能包含有诸多错误，欢迎加入一起修正，随时可能会更新。
 
-
 ## 章节目录
 
 - [基础-开始了解start](./docs/basic.md) 
@@ -26,7 +25,9 @@
 
 - [同步sync](./docs/sync.md)
 
-- [平台互操作](./docs/interoperate.md)
+- [互操作InterOp](./docs/interoperate.md)
+
+- [模块module](./docs/module.md)
 
 
 ## Thanks 
