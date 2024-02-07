@@ -6,7 +6,7 @@
 
 - 函数的定义以func关键字开头，后面是函数名和参数列表。函数可以有返回值，也可以没有返回值（使用Void或空括号表示）.
 
-- 函数返回值，使用`:`符号在函数签名的后边指定返回类型，如果函数作为另一函数的参数，则给该签名的返回值可以使用`（）-> Type表达`，函数体内使用`return`返回值,也可以通过throw语句抛出异常。
+- 函数返回值，使用`:`符号在函数签名的后边指定返回类型，如果匿名函数作为另一函数的参数，则给该签名的返回值可以使用`（）-> Type表达`，函数体内使用`return`返回值,也可以通过throw语句抛出异常。
 
 - 函数参数可以有默认值，参数可以标记为可选。例如，函数`setInt16（endian!:Int1）:Int16`的参数endian`后面的`!`表示该参数是可选的。
 
@@ -97,9 +97,6 @@ class ByteBufferPool<T>{
 
 以上ByteBufferPool构造函数中的所有参数，均为ByteBufferPool类内的全局变量。
 
-### 操作符重载
-
-
 
 ### 函数签名
 
@@ -110,7 +107,7 @@ public func get(size: Int64): Result<PooledByteBuffer<T>>
 private func getBuffer(timeout: Duration, alwaysNewOnFull: Bool): Result<T>
 ```
 
-如果，函数作为一个参数时候，或者作为一个泛型类型参数时，它的签名形式是这样：`(Pram1:Type1,Pram2:Type2)->Type`.
+如果，匿名函数作为一个参数时候，或者作为一个泛型类型参数时，它的签名形式是这样：`(Pram1:Type1,Pram2:Type2)->Type`.
 
 示例如下：
 
@@ -120,4 +117,59 @@ public func start(callback: (ReadWritableChannel)->Unit): Unit
 
 ////函数作为泛型类型参数时。
 public func register(abilities: Array<(Event, (Event)->Event)>)
+```
+
+### 匿名函数
+
+匿名函数是一个很常用的函数书写和表达特性，仓颉的匿名函数形态：
+
+具体，看下面的一个复杂的例子。
+
+```cj
+ match(strategy){
+                case Abort => {e =>
+                    if(!queue.tryEnqueue(e)){
+                        Err(JobQueueException("job queue is full, max size of queue is ${max}"))
+                    }else{
+                        Ok(())
+                    }
+                }
+                case DiscardCurrent => {e =>
+                    queue.enqueue(e, Duration.Zero)
+                    Ok(())
+                }
+                case DiscardOldest => {e =>
+                    while(!queue.tryEnqueue(e)){
+                        queue.tryDequeue()
+                    }
+                    Ok(())
+                }
+                case AbortAfter(d) => {e =>
+                    if(!queue.enqueue(e, d)){
+                        Err(JobQueueException("job queue is full, max size of queue is ${max}"))
+                    }else{
+                        Ok(())
+                    }
+                }
+                case DiscardCurrentAfter(d) => {e =>
+                    queue.enqueue(e, d)
+                    Ok(())
+                }
+                case DiscardOldestAfter(d) => {e=>
+                    while(!queue.enqueue(e, d)){
+                        queue.tryDequeue() 
+                    Ok(())
+                }
+                case Block => {e =>
+                    queue.enqueue(e)
+                    Ok(())
+                }
+                case CurrentThread => currentThreadRuns
+                case New => {e =>
+                    spawn{
+                        currentThreadRuns(e)
+                    }
+                    Ok(())
+                }
+            }
 ```
